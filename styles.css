@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+#cv-content {
+  max-width: 760px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+/* layout dos columnas al abrir PDF */
+body.viewer-open {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  padding: 48px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+body.viewer-open #cv-content {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── header ── */
+header {
+  margin-bottom: 48px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.contact-info {
+  color: #888;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.contact-info span + span::before {
+  content: '  ·  ';
+  color: #ccc;
+}
+
+/* ── secciones ── */
+h2 {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.job,
+.education {
+  margin-bottom: 24px;
+}
+
+.job-title,
+.edu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.date-location {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 12px 0 4px;
+}
+
+.edu-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+ul {
+  padding-left: 16px;
+  color: #444;
+}
+
+li {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.skills-group {
+  padding: 0;
+}
+
+.skills-group h3 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.skills-group p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.project-spacing {
+  margin-top: 24px;
+}
+
+/* ── certificados ── */
+.cert {
+  cursor: pointer;
+  border-bottom: 1px dashed #bbb;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.cert:hover {
+  color: #000;
+  border-bottom-color: #555;
+}
+
+.cert.active {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+/* ── Panel PDF ── */
+#pdf-panel {
+  display: none;
+  width: 520px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 48px;
+}
+
+body.viewer-open #pdf-panel {
+  display: block;
+}
+
+#pdf-panel-inner {
+  border: 0.5px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+#pdf-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 0.5px solid #e0e0e0;
+}
+
+#pdf-panel-title {
+  font-size: 0.82rem;
+  color: #888;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#pdf-panel-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #bbb;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+#pdf-panel-close:hover {
+  color: #333;
+}
+
+#pdf-frame {
+  width: 100%;
+  height: 90vh;
+  border: none;
+  display: block;
+  border-radius: 0 0 8px 8px;
+}
